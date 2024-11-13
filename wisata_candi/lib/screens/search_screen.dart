@@ -35,9 +35,11 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               child: const TextField(
                 autofocus: false,
+                // TODO: 6. Implementasi fitur pencarian
                 decoration: InputDecoration(
                   hintText: 'Cari candi',
                   prefixIcon: Icon(Icons.search),
+                  // TODO: 7. Implementasi pengasangan input
                   border: InputBorder.none,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.deepPurple),
@@ -54,6 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
               itemCount: _filteredCandis.length,
               itemBuilder: (context, index) {
                 final candi = _filteredCandis[index];
+                // TODO: 8. Implementasi GestureDetector dan Hero animation
                 return Card(
                   margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: Row(
