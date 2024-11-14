@@ -26,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: candiList.length,
         itemBuilder: (context, index) {
           Candi candi = candiList[index];
+          // TODO: 3. Buat ItemCard sebagai return value dari GridView
           return ItemCard(
             candi: candi,
           );
         },
       ),
-      // TODO: 3. Buat ItemCard sebagai return value dari GridView
     );
   }
 }
