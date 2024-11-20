@@ -19,6 +19,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isSignedUp = false;
   bool _obscurePassword = false;
 
+  // TODO: 1. Membuat metode _signUp
+  void _signUp() {
+    String name = _nameController.text.trim();
+    String username = _usernameController.text.trim();
+    String password = _passwordController.text.trim();
+    if (password.length < 8 ||
+        !password.contains(RegExp(r'[A-Z]')) ||
+        !password.contains(RegExp(r'[a-z]')) ||
+        !password.contains(RegExp(r'[0-9]')) ||
+        !password.contains(RegExp(r'[@#$%^&*(),.?":{}|<>]'))) {
+      setState(() {
+        _errorText =
+            'Kata sandi minimal 8 karakter, kombinasi [A-Z], [0-9], dan [!@#\$%^&*(),.?":{}|<>]';
+      });
+      print('*** Sign up berhasil!');
+      print("Nama: $name");
+      print("Nama Pengguna: $username");
+      print("Password: $password");
+    }
+  }
+
+  // TODO: 2. Membuat metode dispose
+  void dispose() {
+    // TODO: Implementasi dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
