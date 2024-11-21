@@ -42,6 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     prefs.setString('fullname', name);
     prefs.setString('username', username);
     prefs.setString('password', password);
+
     // Buat navigasi ke SignInScreen
     Navigator.pushReplacementNamed(context, '/signin');
   }

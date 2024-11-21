@@ -38,12 +38,19 @@ class _SignInScreenState extends State<SignInScreen> {
       });
       return;
     }
-    // Belum Selesai
     if (enteredUsername == savedUsername && enteredPassword == savedPassword) {
       setState(() {
         _errorText = '';
         _isSignedIn = true;
         prefs.setBool('isSignedIn', true);
+      });
+      // Pemangilan untuk menghapus semua halaman dalam tumpukan navigasi
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      });
+      // Sign in berhasil, navigasikan ke layar utama
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, '/');
       });
       Navigator.pushNamed(context, '/homescreen');
     } else {
