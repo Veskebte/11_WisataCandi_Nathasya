@@ -192,9 +192,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 isSignedIn
                     ? TextButton(
-                        onPressed: () {}, child: const Text('Sign Out'))
+                        onPressed: signOut, child: const Text('Sign Out'))
                     : TextButton(
-                        onPressed: () {}, child: const Text('Sign In')),
+                        onPressed: signIn, child: const Text('Sign In')),
               ],
             ),
           ),

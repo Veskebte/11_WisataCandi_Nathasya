@@ -23,11 +23,11 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<Map<String, String>> _retrieveAndDecryptDataFromPrefs(
     Future<SharedPreferences> prefs,
   ) async {
-    final SharedPreferences = await prefs;
-    final encrypedUsername = SharedPreferences.getString('username') ?? '';
-    final encrypedPassword = SharedPreferences.getString('password') ?? '';
-    final keyString = SharedPreferences.getString('key') ?? '';
-    final ivString = SharedPreferences.getString('iv') ?? '';
+    final sharedPreferences = await prefs;
+    final encryptedUsername = sharedPreferences.getString('username') ?? '';
+    final encryptedPassword = sharedPreferences.getString('password') ?? '';
+    final keyString = sharedPreferences.getString('key') ?? '';
+    final ivString = sharedPreferences.getString('iv') ?? '';
 
     final encrypt.Key key = encrypt.Key.fromBase64(keyString);
     final iv = encrypt.IV.fromBase64(ivString);
@@ -49,7 +49,8 @@ class _SignInScreenState extends State<SignInScreen> {
       print('Sign in attempt');
       if (username.isNotEmpty && password.isNotEmpty) {
         final SharedPreferences prefs = await prefsFuture;
-        final data = await _retrieveAndDecryptDataFromPrefs(prefs);
+        final data = await _retrieveAndDecryptDataFromPrefs(
+            prefs as Future<SharedPreferences>);
         if (data.isNotEmpty) {
           final decryptedUsername = data['username'];
           final decryptedPassword = data['password'];

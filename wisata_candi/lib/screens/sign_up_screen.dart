@@ -63,7 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     prefs.setString('password', password);
 
     // Buat navigasi ke SignInScreen
-    Navigator.pushReplacementNamed(context, '/signin');
+    Navigator.pushReplacementNamed(context, '/signIn');
   }
 
   // TODO: 2. Membuat metode dispose
