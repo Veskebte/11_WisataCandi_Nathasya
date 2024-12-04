@@ -6,7 +6,6 @@ import 'package:wisata_candi/screens/profile_screen.dart';
 import 'package:wisata_candi/screens/search_screen.dart';
 import 'package:wisata_candi/screens/sign_in_screen.dart';
 import 'package:wisata_candi/screens/sign_up_screen.dart';
-import 'screens/detail_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -39,7 +38,7 @@ class MainApp extends StatelessWidget {
       // home: SignInScreen(),
       // home: SignUpScreen(),
       // home: SearchScreen(),
-      // home: HomeScreen(),
+      home: HomeScreen(),
       // home: MainScreen(),
       initialRoute: '/',
       routes: {

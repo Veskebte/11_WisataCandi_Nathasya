@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_candi/widgets/profile_item_info.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -15,49 +14,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String fullName = "DummyName";
   String userName = "DummyUsername";
   int favoriteCandiCount = 0;
-  String _imageFile = '';
-
-  Future<void> _getImage(ImageSource source) async {
-    final pickedFile = await picker.pickImage(source: source);
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = pickedFile.path;
-      });
-    }
-  }
-
-  void _showPicker() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text(
-                'Image Source',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_library),
-              title: Text('Gallery'),
-              onTap: () {
-                Navigator.of(context).pop(_getImage(ImageSource.gallery));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_camera),
-              title: Text('Camera'),
-              onTap: () {
-                Navigator.of(context).pop(_getImage(ImageSource.camera));
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   // TODO: 5. Implementasi Fungsi Sign In
   void signIn() {
